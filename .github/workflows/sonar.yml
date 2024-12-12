@@ -23,6 +23,13 @@ jobs:
           java-version: '22'
           distribution: 'temurin'
 
+      - name: Install SonarScanner
+        run: |
+          # Descargar SonarScanner
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip
+          unzip sonar-scanner-cli-4.8.0.2856-linux.zip
+          export PATH=$PWD/sonar-scanner-4.8.0.2856-linux/bin:$PATH
+
       - name: Cache SonarQube dependencies
         uses: actions/cache@v2
         with:
